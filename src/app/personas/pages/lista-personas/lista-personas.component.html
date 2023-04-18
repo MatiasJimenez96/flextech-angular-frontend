@@ -1,0 +1,53 @@
+<br>
+<div *ngIf="!personas || personas.length == 0">
+  <h1 class="center"> No hay personas para mostrar, la lista esta vacía! </h1>
+</div>
+<div class="container" *ngIf="personas && personas.length > 0">
+
+  <h1 class="center">Lista de Personas</h1>
+  <br>
+  <table mat-table [dataSource]="personas" class="mat-elevation-z8">
+    <ng-container matColumnDef="Nombre y Apellido">
+      <th mat-header-cell *matHeaderCellDef class="center"> Nombre y Apellido </th>
+      <td mat-cell *matCellDef="let element" class="center" data-titulo="nombre"> {{element.nombre}}
+        {{element.apellido}} </td>
+    </ng-container>
+
+    <ng-container id="miDiv" matColumnDef="fecha_nacimiento">
+      <th mat-header-cell *matHeaderCellDef class="center"> Fecha de nacimiento </th>
+      <td mat-cell *matCellDef="let element" class="center" data-titulo="fecha_nacimiento"> {{element.fecha_nacimiento}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="direccion">
+      <th mat-header-cell *matHeaderCellDef class="center"> Direccion </th>
+      <td mat-cell *matCellDef="let element" class="center" data-titulo="direccion"> {{element.direccion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef class="center"> Telefono </th>
+      <td mat-cell *matCellDef="let element" class="center" data-titulo="telefono"> {{element.telefono}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef class="center"> Pais </th>
+      <td mat-cell *matCellDef="let element" class="center" data-titulo="pais"> {{element.pais}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef class="center"> Acciones </th>
+      <td mat-cell *matCellDef="let element" class="center" data-titulo="acciones">
+        <button mat-button color="primary" (click)="agregarEditarPersona(element.id)">Editar</button>
+        <button mat-button color="warn" (click)="eliminarPersona(element.id)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="space">
+      <th mat-header-cell *matHeaderCellDef class="center"> </th>
+      <td mat-cell *matCellDef="let element" class="center" data-spacer="---"> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

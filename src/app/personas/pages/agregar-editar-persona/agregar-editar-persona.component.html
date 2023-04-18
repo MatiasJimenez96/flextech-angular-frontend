@@ -1,0 +1,68 @@
+<div class="container text-center recuadro">
+    <br>
+    <h1> {{titulo}} persona</h1>
+    <br>
+    <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Ingresar el nombre" formControlName="nombre">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint *ngIf="esInvalido('nombre')">El campo es requerido</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput placeholder="Ingresar el apellido" formControlName="apellido">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint *ngIf="esInvalido('apellido')">El campo es requerido</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Direccion</mat-label>
+                    <input matInput placeholder="Ingresar la dirección" formControlName="direccion">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint *ngIf="esInvalido('direccion')">El campo es requerido</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput placeholder="Ingresar el telefono" formControlName="telefono" type="tel">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint *ngIf="esInvalido('telefono')">El campo es requerido</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="fecha_nacimiento">
+                    <mat-hint *ngIf="esInvalido('fecha_nacimiento')">El campo es requerido</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Select</mat-label>
+                    <mat-select (selectionChange)="onPaisSeleccionado($event.value)" formControlName="pais">
+                      <mat-option [value]="item" *ngFor="let item of paises">{{item}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button mat-raised-button color="primary" type="submit">{{titulo}}</button>
+            </div>
+        </div>
+    </form>
+</div>

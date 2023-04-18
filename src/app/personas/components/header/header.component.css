@@ -1,0 +1,13 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.miClase {
+  color: rgba(240, 248, 255, 0.919);
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.otraClase{
+  display: flex;
+}

@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media(max-width: 30em) {
+    table {
+        width: 100%;
+    }
+
+    table th {
+        display: none;
+    }
+
+    table td {
+        display: flex;
+        flex-direction: column;
+    }
+
+    table td[data-titulo]::before {
+        display: flex;
+        content: attr(data-titulo);
+        color: rgb(0, 0, 0);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    table td[data-spacer]::before {
+        content: attr(data-spacer);
+    }
+}

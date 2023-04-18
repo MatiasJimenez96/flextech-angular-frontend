@@ -1,0 +1,19 @@
+<p>
+    <mat-toolbar color="primary">
+        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="irListaPersonas()">Lista de Personas</button>
+            <button mat-menu-item (click)="irAgregarPersona()">Agregar Persona</button>
+            <button mat-menu-item (click)="irChart()">Chart Personas</button>
+        </mat-menu>
+    </mat-toolbar>
+</p>
+<!-- 
+    <p>
+        <mat-toolbar color="primary" style="display: flex;">
+            <a routerLink="/personas/listar" routerLinkActive="active" class="miClase">Lista de Personas</a>
+            <a routerLink="/personas/agregar" routerLinkActive="active" class="miClase">Agregar Persona</a>
+            <a routerLink="/personas/grafico" routerLinkActive="active" class="miClase">Chart Personas</a>
+        </mat-toolbar>
+    </p>
+-->
